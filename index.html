@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pancho Ross</title>
+    <!--Descripción y palabras clave-->
+    <meta name="description" content="En Pancho Ross encontraras productos de tus marcas favoritas a los mejores precios. Actualizamos nuestro catálogo una vez cada dos semanas.">
+    <meta name="keywords" content="vestidos, playeras, camisas, pantalones, perfumes, productos originales">
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!--Css-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--Favicon-->
+    <link rel="shortcut icon" href="imagenes/logoNegro_PanchoRoss.png" type="image/x-icon">
+    <!--AOS-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!--Parte superior de la página + botones carrito y menú-->
+    <div class="container-fluid header">
+        <div class="col-2 col-xl-1 header__logo">
+            <img src="imagenes/logoBlanco_PanchoRoss.png" alt="logo_PanchoRoss">
+        </div>
+    </div>
+
+    <div class="botonesCM">
+        <button id="carritoBtnID" class="col-3 col-xl-2 carritoBtn">
+            <img src="imagenes/carritoDoddle.png" alt="Carrito">
+        </button>
+        <button id="inicioBtnID" class="col-3 col-xl-2 inicioBtn">
+            Inicio
+        </button>
+    </div>
+
+    <!--Banner-->
+    <div class="container-fluid banner" data-aos="fade-up" data-aos-duration="1500">
+        <img src="imagenes/banner_PanchoRoss.png" alt="banner_PanchoRoss">
+    </div>
+
+    <!--Botones de la página principal-->
+    <div class="container-fluid botonesPri">
+        <button id="botonesPri__cda--catalogo" class="col-12 col-xl-4 botonesPri__cda" type="button">
+            <span>Catálogo</span>
+        </button>
+
+        <button id="botonesPri__cda--descuentos" class="col-12 col-xl-4 botonesPri__cda" type="button">
+            <span>Descuentos</span>
+        </button>
+
+        <button id="botonesPri__cda--aeproductos" class="col-12 col-xl-4 botonesPri__cda" type="button">
+            <span>Agregar/eliminar productos</span>
+        </button>
+    </div>
+
+    <!--Carrito-->
+    <div id="carrito" class="carritoClass">
+
+    </div>
+    <div id="totalCarritoID" class="totalClass">
+
+    </div>
+    <div id="finalizarCompra" class="finalizarClass">
+
+    </div>
+
+    <!--Boton catálogo-->
+    <div class="catalogoSeccion">
+
+        <!--Filtro de productos-->
+        <div id="filtroProductos" class="row filPro">
+
+        </div>
+
+        <!--Presupuesto-->
+        <div id="presupuesto" class="row presupuestoDiv">
+
+        </div>
+
+        <!--Mensaje por si los productos de una categoria estan agotados-->
+        <div id="productosAgotados" class="row">
+
+        </div>
+
+        <!--Catalogo-->
+        <div class="container">
+            <div id="coincidencia"></div>
+                <div id="catProductos" class="row">
+          
+                </div>
+            </div>
+
+            <div class="container">
+                <div id= "oculCatalogo" class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Botón descuentos-->
+    <div id="descuentosSeccion">
+    
+    </div>
+
+    <!--Botón agregar y eliminar productos-->
+    <div id="aeProductosSeccion">
+    
+    </div>
+
+
+    <!--Footer-->
+    <footer class="footerInicio">
+        <img src="imagenes/footer_PanchoRoss.png" alt="Pancho Ross">
+    </footer>
+
+<!--Bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<!--AOS-->  
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<!--Sweet Alert-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<!--Mis js-->
+<script src="js/catalogo.js"></script>
+<script src="js/filtro.js"></script>
+<script src="js/descuentos.js"></script>
+<script src="js/aeProductos.js"></script>
+<script src="js/btnsHeader.js"></script>
+</body>
+</html>

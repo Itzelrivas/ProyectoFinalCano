@@ -1,0 +1,225 @@
+.header {
+  background-color: black;
+  padding: 0%;
+}
+.header .header__logo img {
+  width: 60%;
+  padding: 8%;
+}
+
+.banner {
+  padding: 1%;
+}
+.banner img {
+  width: 100%;
+}
+
+.footerInicio {
+  margin-top: 2%;
+}
+.footerInicio img {
+  width: 100%;
+}
+
+.botonesCM {
+  display: flex;
+  justify-content: end;
+  margin: 1%;
+}
+.botonesCM .carritoBtn {
+  border-color: rgb(255, 253, 245);
+  background-color: rgb(255, 253, 245);
+  border-radius: 22px;
+}
+.botonesCM .carritoBtn img {
+  width: 10%;
+}
+.botonesCM .inicioBtn {
+  margin-left: 1%;
+  border-color: rgb(255, 253, 245);
+  background-color: rgb(255, 253, 245);
+  border-radius: 22px;
+  font-family: "subtitulos";
+}
+
+.botonesPri {
+  padding: 3% 0% 3% 0%;
+  display: flex;
+  justify-content: center;
+}
+.botonesPri .botonesPri__cda {
+  width: 24%;
+  margin-left: 3.5%;
+  margin-right: 3.5%;
+  background-color: rgb(0, 0, 0);
+  font-family: "subtitulos";
+  color: white;
+  border-color: rgb(41, 41, 40);
+  border-radius: 20px;
+}
+
+@font-face {
+  font-family: "subtitulos";
+  src: url(../fuentes/Gold_Song.otf);
+}
+@font-face {
+  font-family: "nombreProducto";
+  src: url(../fuentes/LEMONMILK-Medium.otf);
+}
+.cardProducto {
+  padding: 2%;
+  display: flex;
+}
+.cardProducto .card {
+  background-color: rgb(255, 253, 245);
+}
+.cardProducto .card .card-body {
+  text-align: center;
+}
+.cardProducto .card .card-body .card-title {
+  font-family: "nombreProducto";
+  display: flex;
+  justify-content: center;
+}
+.cardProducto .card .card-body .card-marca {
+  font-family: "subtitulos";
+}
+.cardProducto .card .card-body .card-precio {
+  font-family: "subtitulos";
+}
+.cardProducto .card .card-body .card-talla {
+  font-family: "subtitulos";
+}
+
+.cardProducto .card {
+  background-color: rgb(255, 253, 245);
+  transition: background-color 1.5s;
+}
+
+.cardProducto .card:hover {
+  background-color: rgb(186, 184, 174);
+}
+
+.oculDiv {
+  text-align: center;
+  margin: 3% 3%;
+}
+.oculDiv .btnOculDiv {
+  width: 24%;
+  background-color: rgb(0, 0, 0);
+  font-family: "subtitulos";
+  color: white;
+  border-color: rgb(41, 41, 40);
+  border-radius: 20px;
+}
+
+.filtroProductosDiv .container {
+  display: flex;
+  text-align: center;
+}
+.filtroProductosDiv .container .filtroDiv__Precios {
+  background-color: #6c757d;
+  color: white;
+  border-radius: 7px;
+  padding: 2%;
+  border-color: #6c757d;
+}
+
+.filPro {
+  width: 100%;
+  font-family: "Courier New";
+  margin-bottom: 2%;
+}
+
+.presupuestoDiv {
+  text-align: center;
+  font-family: "subtitulos";
+}
+.presupuestoDiv .presuUsuarioLabel {
+  margin: 2%;
+}
+.presupuestoDiv .presupuestoInput {
+  margin: 2%;
+}
+.presupuestoDiv .btnPresupuesto button {
+  border-radius: 5px;
+  background-color: rgb(255, 253, 245);
+}
+
+.noProductosStock {
+  text-align: center;
+  margin-top: 2%;
+}
+
+.descuentoSeccionBtns {
+  text-align: center;
+  font-family: "Courier New";
+}
+.descuentoSeccionBtns .descuentoLabel {
+  margin-bottom: 2%;
+}
+.descuentoSeccionBtns .descuentoBtn {
+  border-radius: 5px;
+  background-color: rgb(255, 253, 245);
+}
+
+.conProductosSeccion {
+  text-align: center;
+  font-family: "Courier New";
+}
+.conProductosSeccion button {
+  margin: 2%;
+  border-radius: 5px;
+  background-color: rgb(255, 253, 245);
+}
+
+.seleccionAgregarDiv {
+  text-align: center;
+  font-family: "Courier New";
+  margin: 2%;
+  border-radius: 5px;
+}
+
+.formAgregarEliminarDiv {
+  text-align: center;
+  font-family: "Courier New";
+}
+.formAgregarEliminarDiv .formAgregar {
+  margin: 1%;
+}
+
+.botonCerrarForm {
+  text-align: center;
+  font-family: "Courier New";
+}
+.botonCerrarForm button {
+  margin: 2%;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+
+.carritoClass {
+  display: flex;
+  justify-content: center;
+}
+.carritoClass .cardCarrito {
+  text-align: center;
+  font-family: "subtitulos";
+  background-color: rgb(183, 152, 116);
+  color: antiquewhite;
+  margin: 1%;
+  padding: 2%;
+}
+
+.totalClass {
+  margin: 2%;
+  font-family: "subtitulos";
+  text-align: center;
+  background-color: rgb(255, 253, 245);
+}
+.totalClass .codigoBtnClass {
+  margin-bottom: 2%;
+}
+
+/*# sourceMappingURL=style.css.map */

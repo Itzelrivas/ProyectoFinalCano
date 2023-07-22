@@ -1,0 +1,72 @@
+.cardProducto{
+    padding: 2%;
+    display: flex;
+    .card{
+        background-color: rgb(255 253 245);
+        .card-body{
+            text-align: center;
+            .card-title{
+                font-family: "nombreProducto"; display: flex; justify-content: center;
+            }
+            .card-marca{
+                font-family: "subtitulos";
+            }
+            .card-precio{
+                font-family: "subtitulos";
+            }
+            .card-talla{
+                font-family: "subtitulos";
+            }
+        }
+    }
+}
+
+.cardProducto .card{
+    background-color: rgb(255 253 245);
+    transition: background-color 1.5s;
+}
+.cardProducto .card:hover{background-color: rgb(186, 184, 174);}
+
+
+//Boton ocultar catálogo
+.oculDiv{
+    text-align: center; margin: 3% 3%;
+    .btnOculDiv{
+        width: 24%; background-color:rgb(0, 0, 0); font-family: "subtitulos"; color: white; border-color:rgb(41, 41, 40); border-radius: 20px;
+    }
+}
+
+//Estilos de la parte de los botones de los filtros 
+.filtroProductosDiv .container{
+    display: flex; text-align: center;
+    .filtroDiv__Precios{
+        background-color: #6c757d; color: white; border-radius: 7px; padding: 2%; border-color: #6c757d;
+    }
+}
+
+.filPro{
+    width: 100%;
+    font-family: 'Courier New';
+    margin-bottom: 2%;
+}
+
+//Filtro por precio ingresado por el usuario
+.presupuestoDiv{
+    text-align: center;
+    font-family: "subtitulos";
+    .presuUsuarioLabel{
+        margin: 2%;
+    }
+    .presupuestoInput{
+        margin: 2%;
+    }
+    .btnPresupuesto button{
+        border-radius: 5px; background-color: rgb(255, 253, 245);
+    }
+}
+
+
+//Mensaje que aparece cuando no hay productos dentro de una categoría o presupuesto
+.noProductosStock{
+    text-align: center; margin-top: 2%;
+}

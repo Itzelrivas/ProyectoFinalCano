@@ -1,0 +1,38 @@
+.header{
+    background-color: black; padding: 0%;
+    .header__logo img{
+        width: 60%; padding: 8%;
+    }
+}
+
+.banner{
+    padding: 1%;
+    img{
+        width: 100%;
+    }
+}
+
+.footerInicio{
+    margin-top: 2%;
+    img{width: 100%;}
+}
+
+.botonesCM{
+    display: flex;
+    justify-content: end;
+    margin: 1%;
+    .carritoBtn{
+        border-color: rgb(255 253 245);
+        background-color: rgb(255 253 245);
+        border-radius: 22px;
+        img{width: 10%;}
+    }
+    
+    .inicioBtn{
+        margin-left: 1%;
+        border-color: rgb(255 253 245);
+        background-color: rgb(255 253 245);
+        border-radius: 22px;
+        font-family: "subtitulos";
+    }
+}

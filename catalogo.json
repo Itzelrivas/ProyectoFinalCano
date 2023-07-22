@@ -1,0 +1,110 @@
+[
+    {
+        "producto": "Vestido de rayas azul con amarillo",
+        "categoria": "vestidos",
+        "marca": "Tommy Hilfiger",
+        "precio": 600,
+        "talla": "mediana",
+        "codigo": 1,
+        "imagen": "vestidoAzulTommy.png"
+    },
+    {
+        "producto":"Vestido de blanco con rosa y corte v",
+        "categoria":"vestidos",
+        "marca":"Tommy Hilfiger",
+        "precio":650,
+        "talla":"mediana",
+        "codigo":2,
+        "imagen":"vestidoBlancorosaTommy.png"
+    },
+    {
+        "producto":"Vestido largo color vino",
+        "categoria":"vestidos",
+        "marca":"Tommy Hilfiger",
+        "precio":800,
+        "talla":"grande",
+        "codigo":3,
+        "imagen":"vestidoVinoTommy.png"
+    },
+    {
+        "producto":"Vestido azul",
+        "categoria":"vestidos",
+        "marca":"Guess",
+        "precio":550,
+        "talla":"chico",
+        "codigo":4,
+        "imagen":"vestidoAzulGuess.png"
+    },
+    {
+        "producto":"Vestido negro con flores",
+        "categoria":"vestidos",
+        "marca":"Michael Kors",
+        "precio":950,
+        "talla":"6",
+        "codigo":5,
+        "imagen":"vestidoFloresMK.png"
+    },
+    {
+        "producto":"Vestido negro",
+        "categoria":"vestidos",
+        "marca":"Guess",
+        "precio":800,
+        "talla":"chico",
+        "codigo":6,
+        "imagen":"vestidoNegroGuess.png"
+    },
+    {
+        "producto":"Bolsa Crossbody azul",
+        "categoria":"bolsas",
+        "marca":"Tommy Hilfiger",
+        "precio":650,
+        "talla":"20cm * 18cm * 15cm",
+        "codigo":7,
+        "imagen":"bolsaCBAzulTommy.png"
+    },
+    {
+        "producto":"Bolsa Crossbody negra",
+        "categoria":"bolsas",
+        "marca":"Nautica",
+        "precio":550,
+        "talla":"25cm * 15cm * 12cm",
+        "codigo":8,
+        "imagen":"bolsaNegraNautica.png"
+    },
+    {
+        "producto":"Bolsa Crossbody roja",
+        "categoria":"bolsas",
+        "marca":"Karl Lagerfeld",
+        "precio":850,
+        "talla":"8cm * 15cm * 1.5cm",
+        "codigo":9,
+        "imagen":"bolsaCBRojaKL.png"
+    },
+    {
+        "producto":"Mochila blanca",
+        "categoria":"bolsas",
+        "marca":"Karl Lagerfeld",
+        "precio":1050,
+        "talla":"20cm * 30cm * 15cm",
+        "codigo":10,
+        "imagen":"mochilaBlancaKL.png"
+    },
+    {
+        "producto":"Bolsa Crossbody café",
+        "categoria":"bolsas",
+        "marca":"Karl Lagerfeld",
+        "precio":850,
+        "talla":"8cm * 15cm * 1.5cm",
+        "codigo":11,
+        "imagen":"bolsaCBCafeKL.png"
+    },
+    {
+        "producto":"Cartera azul",
+        "categoria":"bolsas",
+        "marca":"Tommy Hilfiger",
+        "precio":600,
+        "talla":"9cm * 7.5cm * 2cm",
+        "codigo":12,
+        "imagen":"carteraAzulTommy.png"
+    }
+]

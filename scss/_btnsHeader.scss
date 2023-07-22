@@ -1,0 +1,22 @@
+.carritoClass{
+    display: flex;
+    justify-content: center;
+    .cardCarrito{
+        text-align: center;
+        font-family: "subtitulos";
+        background-color: rgb(183, 152, 116);
+        color:antiquewhite;
+        margin: 1%;
+        padding: 2%;
+    }
+}
+
+.totalClass{
+    margin: 2%;
+    font-family: "subtitulos";
+    text-align: center;
+    background-color: rgb(255 253 245);
+    .codigoBtnClass{
+        margin-bottom: 2%;
+    }
+}

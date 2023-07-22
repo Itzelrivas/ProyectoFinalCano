@@ -1,0 +1,24 @@
+.conProductosSeccion{
+    text-align: center; font-family: 'Courier New';
+    button{
+        margin: 2%; border-radius: 5px; background-color: rgb(255, 253, 245);
+    }
+}
+
+.seleccionAgregarDiv{
+    text-align: center; font-family: 'Courier New'; margin: 2%; border-radius: 5px;
+}
+
+.formAgregarEliminarDiv{
+    text-align: center; font-family: 'Courier New';
+    .formAgregar{
+        margin: 1%;
+    }
+}
+
+.botonCerrarForm{
+    text-align: center; font-family: 'Courier New';
+    button{
+        margin: 2%; border-radius: 5px; background-color: black; color: white;
+    }
+}
