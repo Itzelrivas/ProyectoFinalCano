@@ -1,15 +1,16 @@
 //Accedemos al boton menú de mi index, el cual resetea todo y solo deja los tres botones principales: catálogo, descuento, agregar y eliminar productos
 let btnMenu = document.getElementById("inicioBtnID")
 btnMenu.addEventListener("click", () => {
-    productosDiv.innerHTML = ``
-    productosAgotados.innerText = ``
-    presupuesto.innerText = ``
-    oculCatalogoBtn.innerText = ``
-    filtroCatalogo.innerText = ``
-    descuentoSeccion.innerText = ``
-    aeProductosSeccion.innerText = ``
-    modalBodyCarrito.innerText = ``
-    carritoTotal.innerText = ``
+   productosDiv.innerHTML = ``
+   productosAgotados.innerText = ``
+   presupuesto.innerText = ``
+   oculCatalogoBtn.innerText = ``
+   filtroCatalogo.innerText = ``
+   descuentoSeccion.innerText = ``
+   aeProductosSeccion.innerText = ``
+   modalBodyCarrito.innerText = ``
+   carritoTotal.innerText = ``
+   
 })
 
 //Botón carrito
@@ -55,6 +56,7 @@ function agregarAlCarrito(producto){
 //Aparecen cards mostrando los productos del carrito 
 let modalBodyCarrito = document.getElementById("carrito")
 let carritoTotal = document.getElementById("totalCarritoID")
+let finalizarBtn = document.getElementById("finalizarCarrito")
 function cargarProductosCarrito(array){
     modalBodyCarrito.innerHTML = ``
     array.forEach((productoCarrito)=>{
@@ -93,28 +95,60 @@ function cargarProductosCarrito(array){
     //Botón finalizar compra 
     let btnFinalizar = document.getElementById("finalizarCompra")
     btnFinalizar.innerHTML = `<button id="botonFinalizar">Finalizar Compra</button>`
-    document.getElementById("botonFinalizar").addEventListener("click", () => {
-      let total = productosEnCarrito.reduce((acc, productoCarrito)=> acc + productoCarrito.precio , 0)
-      const funFinalizar = async () =>{
-         const ipAPI = '//api.ipify.org?format=json'
-         const inputValue = fetch(ipAPI)
-         .then(response => response.json())
-         .then(data => data.ip)
 
+    document.getElementById("botonFinalizar").addEventListener("click", () => {
+      if(localStorage.getItem("codigosDescuento")){
+         codigosDescuento = JSON.parse(localStorage.getItem("codigosDescuento"))
+       }else{
+         codigosDescuento.forEach(objeto =>{
+             codigosDescuento.push(objeto)
+         })
+         localStorage.setItem("codigosDescuento", JSON.stringify(codigosDescuento)) 
+      }
+
+      let total = productosEnCarrito.reduce((acc, productoCarrito)=> acc + productoCarrito.precio , 0)
+      
+      const funFinalizar = async () =>{
          const { value: codDescuento } = await Swal.fire({
          title: 'Estas a punto de finalizar tu compra...',
          input: 'text',
-         inputLabel: 'Si tienes un código de descuento vigente, ingresalo aquí para que se aplique :)',
+         inputLabel: 'Si tienes un código de descuento vigente, ingresalo aquí para que se aplique:',
          showCancelButton: true,
          cancelButtonText: "Cancelar",
-         confirmButtonText: "Continuar",
-         inputValidator: (value) => {
-            if (!value) {
-               return 'You need to write something!'
-            }
-         }
+         confirmButtonText: "Continuar"
          })
-         console.log(codDescuento)
+         
+         if (codDescuento){
+            let a=0
+            let b
+            for(let i=0; i<codigosDescuento.length; i++){
+               if(codigosDescuento[i] == codDescuento){
+                  a++
+                  b=i
+                  Swal.fire({
+                     title: `Tu codigo de descuento fue aplicado exitosamente. El total a pagar es de <strong>$${total*0.9}</strong>`,
+                     html: `<button id="finalizarCarrito" class="finalizarBtnClass">Finalizar compra</button>`,
+                     showConfirmButton:false
+                  })
+                  break
+               }
+            }
+
+            //aqui iba  let finalizarBtn = document.getElementById("finalizarCarrito")
+            finalizarBtn.addEventListener("click", () => {
+               //Eliminamos el código de descuento para que no se pueda aplicar más de una vez
+               codigosDescuento.splice(b,1)
+               localStorage.setItem("codigosDescuento", JSON.stringify(codigosDescuento))
+               //Limpiamos el array del carrito
+               productosEnCarrito = []
+               localStorage.setItem("carrito", productosEnCarrito)
+               //Limpiamos nuestra sección de carrito y eliminamos las cards
+               modalBodyCarrito.innerHTML = ``
+               carritoTotal.innerText = ``
+               cargarProductosCarrito(productosEnCarrito)
+               btnFinalizar.innerText = ``
+            })
+         }
       }
       funFinalizar()
    })
