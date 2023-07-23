@@ -12,7 +12,8 @@ aeProductosBtn.addEventListener("click", () => {
     descuentoSeccion.innerText = ``
     modalBodyCarrito.innerText = ``
     carritoTotal.innerText = ``
-
+    btnFinalizar.innerText = ``
+    
     //Contraseña para tener acceso a la función 
     let contraseñaProductos = document.createElement("div")
     contraseñaProductos.className = "conProductosSeccion"

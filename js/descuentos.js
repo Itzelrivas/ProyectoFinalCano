@@ -27,7 +27,8 @@ descuentosBtn.addEventListener("click", () => {
     aeProductosSeccion.innerText = ``
     modalBodyCarrito.innerText = ``
     carritoTotal.innerText = ``
-
+    btnFinalizar.innerText = ``
+    
     Swal.fire({
         title: 'Registrate para obtener un 10% en tu primera compra :)',
         width: 600,

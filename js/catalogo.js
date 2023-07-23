@@ -92,6 +92,7 @@ catalogoCards.addEventListener("click", ()=>{
     aeProductosSeccion.innerText = ``
     modalBodyCarrito.innerText = ``
     carritoTotal.innerText = ``
+    btnFinalizar.innerText = ``
     localStorage.setItem("catalogoProductos", JSON.stringify(catalogoProductos))
     filtrarPor()
     mostrarCatalogo(catalogoProductos)

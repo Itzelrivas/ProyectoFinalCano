@@ -10,6 +10,7 @@ btnMenu.addEventListener("click", () => {
    aeProductosSeccion.innerText = ``
    modalBodyCarrito.innerText = ``
    carritoTotal.innerText = ``
+   btnFinalizar.innerText = ``
    
 })
 
@@ -56,7 +57,7 @@ function agregarAlCarrito(producto){
 //Aparecen cards mostrando los productos del carrito 
 let modalBodyCarrito = document.getElementById("carrito")
 let carritoTotal = document.getElementById("totalCarritoID")
-let finalizarBtn = document.getElementById("finalizarCarrito")
+let btnFinalizar = document.getElementById("finalizarCompra")
 function cargarProductosCarrito(array){
     modalBodyCarrito.innerHTML = ``
     array.forEach((productoCarrito)=>{
@@ -93,7 +94,7 @@ function cargarProductosCarrito(array){
     calcularTotal(array)
     
     //Botón finalizar compra 
-    let btnFinalizar = document.getElementById("finalizarCompra")
+    //aqui iba let btnFinalizar = document.getElementById("finalizarCompra")
     btnFinalizar.innerHTML = `<button id="botonFinalizar">Finalizar Compra</button>`
 
     document.getElementById("botonFinalizar").addEventListener("click", () => {
@@ -134,7 +135,7 @@ function cargarProductosCarrito(array){
                }
             }
 
-            //aqui iba  let finalizarBtn = document.getElementById("finalizarCarrito")
+            let finalizarBtn = document.getElementById("finalizarCarrito")
             finalizarBtn.addEventListener("click", () => {
                //Eliminamos el código de descuento para que no se pueda aplicar más de una vez
                codigosDescuento.splice(b,1)
@@ -158,13 +159,13 @@ function cargarProductosCarrito(array){
  function calcularTotal(array){
     let total = array.reduce((acc, productoCarrito)=> acc + productoCarrito.precio , 0)
     if(total == 0){
-        Swal.fire({
-            title: `No hay productos en el carrito`,
-            icon: "warning",
-            timer: 2000,
-            showConfirmButton: false
-         })
-         carritoTotal.innerText = ``
+      Swal.fire({
+         title: `No hay productos en el carrito`,
+         icon: "warning",
+         timer: 2000,
+         showConfirmButton: false
+      })
+      carritoTotal.innerText = ``
     }
     else{
         carritoTotal.innerHTML = `<div class="totalCarrito">
