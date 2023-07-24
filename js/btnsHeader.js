@@ -120,27 +120,6 @@ function cargarProductosCarrito(array){
             confirmButtonText: "Continuar",
             confirmButtonColor: "rgb(183, 152, 116)",
             cancelButtonColor: "black",
-            inputValidator: (value) => {
-               //Esto es cuando los usuarios no tienen ningún código de descuento y no escriben nada en el input
-               if (!value) {
-                  Swal.fire({
-                     title: `¡Muchas gracias por comprar en Pancho Ross!. El total a pagar es de <strong>$${totalFinal}</strong>`,
-                     html: `<button id="finalizarCarritoSD" class="finalizarBtnClass">Finalizar compra</button>`,
-                     showConfirmButton:false
-                  })
-                  //Cuando hagan click en el botón finalizar compra, se resetea todo el carrito
-                  let finalizarSD = document.getElementById("finalizarCarritoSD")
-                  finalizarSD.addEventListener("click", () => {
-                     //Limpiamos el array del carrito
-                     productosEnCarrito = []
-                     localStorage.setItem("carrito", productosEnCarrito)
-                     //Limpiamos nuestra sección de carrito y eliminamos las cards
-                     modalBodyCarrito.innerHTML = ``
-                     carritoTotal.innerText = ``
-                     cargarProductosCarrito(productosEnCarrito)
-                     btnFinalizar.innerText = ``
-                  })
-               }}
             })
             
             if (codDescuento){
@@ -193,6 +172,26 @@ function cargarProductosCarrito(array){
                      btnFinalizar.innerText = ``
                   })
                }
+            }
+            //El usuario no ingresa ningún código de descuento
+            else{
+               Swal.fire({
+                     title: `¡Muchas gracias por comprar en Pancho Ross! El total a pagar es de <strong>$${totalFinal}</strong>`,
+                     html: `<button id="finalizarCarritoSD" class="finalizarBtnClass">Finalizar compra</button>`,
+                     showConfirmButton:false
+               })
+               //Cuando hagan click en el botón finalizar compra, se resetea todo el carrito
+               let finalizarSD = document.getElementById("finalizarCarritoSD")
+               finalizarSD.addEventListener("click", () => {
+                  //Limpiamos el array del carrito
+                  productosEnCarrito = []
+                  localStorage.setItem("carrito", productosEnCarrito)
+                  //Limpiamos nuestra sección de carrito y eliminamos las cards
+                  modalBodyCarrito.innerHTML = ``
+                  carritoTotal.innerText = ``
+                  cargarProductosCarrito(productosEnCarrito)
+                  btnFinalizar.innerText = ``
+               })
             }
          }
          funFinalizar()
