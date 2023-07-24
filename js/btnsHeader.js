@@ -147,6 +147,17 @@ function cargarProductosCarrito(array){
                         carritoTotal.innerText = ``
                         cargarProductosCarrito(productosEnCarrito)
                         btnFinalizar.innerText = ``
+
+                        //Aparece una notificación de que la compra fue realizada con éxito
+                        setTimeout(() => {
+                           Toastify({
+                              text:"Tu compra fue realizada exitosamente",
+                              duration: 4000,
+                              style: {
+                                 background: "rgb(139, 10, 10)"
+                              }
+                           }).showToast();
+                        }, 2000)
                      })
                      break
                   }
@@ -170,6 +181,17 @@ function cargarProductosCarrito(array){
                      carritoTotal.innerText = ``
                      cargarProductosCarrito(productosEnCarrito)
                      btnFinalizar.innerText = ``
+
+                     //Aparece una notificación de que la compra fue realizada con éxito
+                     setTimeout(() => {
+                        Toastify({
+                           text:"Tu compra fue realizada exitosamente",
+                           duration: 4000,
+                           style: {
+                              background: "rgb(139, 10, 10)"
+                           }
+                        }).showToast();
+                     }, 2000)
                   })
                }
             }
@@ -191,6 +213,17 @@ function cargarProductosCarrito(array){
                   carritoTotal.innerText = ``
                   cargarProductosCarrito(productosEnCarrito)
                   btnFinalizar.innerText = ``
+
+                  //Aparece una notificación de que la compra fue realizada con éxito
+                  setTimeout(() => {
+                     Toastify({
+                        text:"Tu compra fue realizada exitosamente",
+                        duration: 4000,
+                        style: {
+                           background: "rgb(139, 10, 10)"
+                        }
+                     }).showToast();
+                  }, 2000)
                })
             }
          }
