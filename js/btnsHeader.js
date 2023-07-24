@@ -94,65 +94,110 @@ function cargarProductosCarrito(array){
     calcularTotal(array)
     
     //Botón finalizar compra 
-    //aqui iba let btnFinalizar = document.getElementById("finalizarCompra")
-    btnFinalizar.innerHTML = `<button id="botonFinalizar">Finalizar Compra</button>`
+    let totalFinal = productosEnCarrito.reduce((acc, productoCarrito)=> acc + productoCarrito.precio , 0)
+    //Solo aparece cuando el total es disntinto a cero
+    if(totalFinal != 0){
+      btnFinalizar.innerHTML = `<button id="botonFinalizar" class="botonFinalizarClass">Finalizar Compra</button>`
 
-    document.getElementById("botonFinalizar").addEventListener("click", () => {
-      if(localStorage.getItem("codigosDescuento")){
-         codigosDescuento = JSON.parse(localStorage.getItem("codigosDescuento"))
-       }else{
-         codigosDescuento.forEach(objeto =>{
-             codigosDescuento.push(objeto)
-         })
-         localStorage.setItem("codigosDescuento", JSON.stringify(codigosDescuento)) 
-      }
-
-      let total = productosEnCarrito.reduce((acc, productoCarrito)=> acc + productoCarrito.precio , 0)
+      document.getElementById("botonFinalizar").addEventListener("click", () => {
+         if(localStorage.getItem("codigosDescuento")){
+            codigosDescuento = JSON.parse(localStorage.getItem("codigosDescuento"))
+         }
+         else{
+            codigosDescuento.forEach(objeto =>{
+               codigosDescuento.push(objeto)
+            })
+            localStorage.setItem("codigosDescuento", JSON.stringify(codigosDescuento)) 
+         }
       
-      const funFinalizar = async () =>{
-         const { value: codDescuento } = await Swal.fire({
-         title: 'Estas a punto de finalizar tu compra...',
-         input: 'text',
-         inputLabel: 'Si tienes un código de descuento vigente, ingresalo aquí para que se aplique:',
-         showCancelButton: true,
-         cancelButtonText: "Cancelar",
-         confirmButtonText: "Continuar"
-         })
-         
-         if (codDescuento){
-            let a=0
-            let b
-            for(let i=0; i<codigosDescuento.length; i++){
-               if(codigosDescuento[i] == codDescuento){
-                  a++
-                  b=i
+         const funFinalizar = async () =>{
+            const { value: codDescuento } = await Swal.fire({
+            title: 'Estas a punto de finalizar tu compra...',
+            input: 'text',
+            inputLabel: 'Si tienes un código de descuento vigente, ingresalo aquí para que se aplique. En caso contrario, solo da click en el botón "continuar" :)',
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonText: "Continuar",
+            confirmButtonColor: "rgb(183, 152, 116)",
+            cancelButtonColor: "black",
+            inputValidator: (value) => {
+               //Esto es cuando los usuarios no tienen ningún código de descuento y no escriben nada en el input
+               if (!value) {
                   Swal.fire({
-                     title: `Tu codigo de descuento fue aplicado exitosamente. El total a pagar es de <strong>$${total*0.9}</strong>`,
-                     html: `<button id="finalizarCarrito" class="finalizarBtnClass">Finalizar compra</button>`,
+                     title: `¡Muchas gracias por comprar en Pancho Ross!. El total a pagar es de <strong>$${totalFinal}</strong>`,
+                     html: `<button id="finalizarCarritoSD" class="finalizarBtnClass">Finalizar compra</button>`,
                      showConfirmButton:false
                   })
-                  break
+                  //Cuando hagan click en el botón finalizar compra, se resetea todo el carrito
+                  let finalizarSD = document.getElementById("finalizarCarritoSD")
+                  finalizarSD.addEventListener("click", () => {
+                     //Limpiamos el array del carrito
+                     productosEnCarrito = []
+                     localStorage.setItem("carrito", productosEnCarrito)
+                     //Limpiamos nuestra sección de carrito y eliminamos las cards
+                     modalBodyCarrito.innerHTML = ``
+                     carritoTotal.innerText = ``
+                     cargarProductosCarrito(productosEnCarrito)
+                     btnFinalizar.innerText = ``
+                  })
+               }}
+            })
+            
+            if (codDescuento){
+               let a=0
+               let b
+               for(let i=0; i<codigosDescuento.length; i++){
+                  if(codigosDescuento[i] == codDescuento){
+                     a++
+                     b=i
+                     Swal.fire({
+                        title: `Tu codigo de descuento fue aplicado exitosamente. El total a pagar es de <strong>$${totalFinal*0.9}</strong>`,
+                        html: `<button id="finalizarCarrito" class="finalizarBtnClass">Finalizar compra</button>`,
+                        showConfirmButton:false
+                     })
+                     let finalizarBtn = document.getElementById("finalizarCarrito")
+                     finalizarBtn.addEventListener("click", () => {
+                        //Eliminamos el código de descuento para que no se pueda aplicar más de una vez
+                        codigosDescuento.splice(b,1)
+                        localStorage.setItem("codigosDescuento", JSON.stringify(codigosDescuento))
+                        //Limpiamos el array del carrito
+                        productosEnCarrito = []
+                        localStorage.setItem("carrito", productosEnCarrito)
+                        //Limpiamos nuestra sección de carrito y eliminamos las cards
+                        modalBodyCarrito.innerHTML = ``
+                        carritoTotal.innerText = ``
+                        cargarProductosCarrito(productosEnCarrito)
+                        btnFinalizar.innerText = ``
+                     })
+                     break
+                  }
+               }
+
+               //El código de descuento no es válido
+               if(a == 0){
+                  Swal.fire({
+                     title: `¡Oh no! El código de descuento que ingresaste ya no es válido. El total a pagar es de <strong>$${totalFinal}</strong>`,
+                     html: `<button id="finalizarCarritoSD" class="finalizarBtnClass">Finalizar compra</button>`,
+                     showConfirmButton:false
+                  })
+                  //Cuando hagan click en el botón finalizar compra, se resetea todo el carrito
+                  let finalizarSD = document.getElementById("finalizarCarritoSD")
+                  finalizarSD.addEventListener("click", () => {
+                     //Limpiamos el array del carrito
+                     productosEnCarrito = []
+                     localStorage.setItem("carrito", productosEnCarrito)
+                     //Limpiamos nuestra sección de carrito y eliminamos las cards
+                     modalBodyCarrito.innerHTML = ``
+                     carritoTotal.innerText = ``
+                     cargarProductosCarrito(productosEnCarrito)
+                     btnFinalizar.innerText = ``
+                  })
                }
             }
-
-            let finalizarBtn = document.getElementById("finalizarCarrito")
-            finalizarBtn.addEventListener("click", () => {
-               //Eliminamos el código de descuento para que no se pueda aplicar más de una vez
-               codigosDescuento.splice(b,1)
-               localStorage.setItem("codigosDescuento", JSON.stringify(codigosDescuento))
-               //Limpiamos el array del carrito
-               productosEnCarrito = []
-               localStorage.setItem("carrito", productosEnCarrito)
-               //Limpiamos nuestra sección de carrito y eliminamos las cards
-               modalBodyCarrito.innerHTML = ``
-               carritoTotal.innerText = ``
-               cargarProductosCarrito(productosEnCarrito)
-               btnFinalizar.innerText = ``
-            })
          }
-      }
-      funFinalizar()
-   })
+         funFinalizar()
+      })
+   }
 }
  
  //Función para calcular el total de los productos del carrito
