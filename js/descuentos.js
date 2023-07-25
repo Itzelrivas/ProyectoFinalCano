@@ -31,7 +31,7 @@ descuentosBtn.addEventListener("click", () => {
     
     Swal.fire({
         title: 'Registrate para obtener un 10% en tu primera compra :)',
-        width: 600,
+        width: 350,
         padding: '3em',
         background: '#fffdf5',
         confirmButtonColor: 'black',
@@ -40,7 +40,13 @@ descuentosBtn.addEventListener("click", () => {
         },
         hideClass: {
             popup: 'animate__animated animate__fadeOutUp'
-        }
+        },
+        backdrop: `
+          rgba(255, 240, 212, 0.731)
+          url("imagenes/descuento.gif")
+          right top
+          no-repeat
+          `
       })
     
     //Formulario para obtener un código de descuento

@@ -43,6 +43,7 @@ function agregarAlCarrito(producto){
          showClass: {
             popup: 'animate__animated animate__flipInY'
          },
+         backdrop: `rgba(183, 152, 116, 0.637)`
        })
     }else{
        //El producto seleccionado ya está en el carrito
@@ -51,7 +52,13 @@ function agregarAlCarrito(producto){
           imageUrl: `imagenes/carritoInfo.png`,
           imageHeight: 100,
           timer: 2000,
-          showConfirmButton: false
+          showConfirmButton: false,
+          backdrop: `
+          rgba(139, 10, 10, 0.564)
+          url("imagenes/carrito.gif")
+          right top
+          no-repeat
+          `
        })
     }
 }
