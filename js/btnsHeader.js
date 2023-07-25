@@ -141,7 +141,9 @@ function cargarProductosCarrito(array){
                      a++
                      b=i
                      Swal.fire({
-                        title: `Tu codigo de descuento fue aplicado exitosamente. El total a pagar es de <strong>$${totalFinal*0.9}</strong>`,
+                        imageUrl: `imagenes/logoNegro_PanchoRoss.png`,
+                        imageHeight: 100,
+                        title: `Tu código de descuento fue aplicado exitosamente. El total a pagar es de <strong>$${totalFinal*0.9}</strong>`,
                         html: `<button id="finalizarCarrito" class="finalizarBtnClass">Finalizar compra</button>`,
                         showConfirmButton:false
                      })
@@ -177,6 +179,8 @@ function cargarProductosCarrito(array){
                //El código de descuento no es válido
                if(a == 0){
                   Swal.fire({
+                     imageUrl: `imagenes/logoNegro_PanchoRoss.png`,
+                     imageHeight: 100,
                      title: `¡Oh no! El código de descuento que ingresaste ya no es válido. El total a pagar es de <strong>$${totalFinal}</strong>`,
                      html: `<button id="finalizarCarritoSD" class="finalizarBtnClass">Finalizar compra</button>`,
                      showConfirmButton:false
@@ -209,8 +213,15 @@ function cargarProductosCarrito(array){
             //El usuario no ingresa ningún código de descuento
             else{
                Swal.fire({
-                     title: `¡Muchas gracias por comprar en Pancho Ross! El total a pagar es de <strong>$${totalFinal}</strong>`,
-                     html: `<button id="finalizarCarritoSD" class="finalizarBtnClass">Finalizar compra</button>`,
+                     title: `¡Muchas gracias por comprar en Pancho Ross!`,
+                     imageUrl: `imagenes/logoNegro_PanchoRoss.png`,
+                     imageHeight: 100,
+                     html: `<div>
+                              <h3>El total a pagar es de <strong>$${totalFinal}</strong></h3>
+                           </div>
+                           <div>
+                              <button id="finalizarCarritoSD" class="finalizarBtnClass">Finalizar compra</button>
+                           </div>`,
                      showConfirmButton:false
                })
                //Cuando hagan click en el botón finalizar compra, se resetea todo el carrito
