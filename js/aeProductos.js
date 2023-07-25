@@ -76,6 +76,17 @@ aeProductosBtn.addEventListener("click", () => {
                     aeProductosSeccion.innerText = ``
                     mostrarCatalogo(catalogoProductos)
 
+                    //Aparece una notificación cuando se agrega el producto
+                    Toastify({
+                        avatar: `imagenes/${nuevoImagen}`,
+                        text:"Se agregó un nuevo producto al catálogo",
+                        duration: 4000,
+                        style: {
+                           background: "beige",
+                           color: "black"
+                        }
+                     }).showToast();
+
                     let btnCerrar = document.createElement("div")
                     btnCerrar.className = "botonCerrarForm"
                     btnCerrar.innerHTML = `
@@ -118,6 +129,16 @@ aeProductosBtn.addEventListener("click", () => {
                     let indiceCarrito = carritoProductos.indexOf(codigo)
                     productosEnCarrito.splice(indiceCarrito,1)
                     localStorage.setItem("carrito", JSON.stringify(productosEnCarrito))
+
+                    //Aparece una notificación cuando se elimina el producto
+                    Toastify({
+                        text:"Se eliminó el producto del catálogo",
+                        duration: 4000,
+                        style: {
+                           background: "rgb(183, 152, 116)",
+                           color: "beige"
+                        }
+                     }).showToast();
 
                     let btnCerrar = document.createElement("div")
                     btnCerrar.className = "botonCerrarForm"

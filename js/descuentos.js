@@ -33,7 +33,6 @@ descuentosBtn.addEventListener("click", () => {
         title: 'Registrate para obtener un 10% en tu primera compra :)',
         width: 600,
         padding: '3em',
-        color: '#716add',
         background: '#fffdf5',
         confirmButtonColor: 'black'
       })
@@ -76,7 +75,7 @@ descuentosBtn.addEventListener("click", () => {
               }
 
             Swal.fire({
-                icon: 'succes',
+                icon: 'success',
                 title: `Tu código de descuento es primCompra${clientes.length + 1}`,
                 text: 'Usalo en tu primera compra para obtener un 10% de descuento. Recuerda que tu código tiene un mes de vigencia y solamente puedes utilizarlo una vez :)',
                 footer: '<h5>¡Muchas gracias por interesarte en nuestros productos!</h5>'
