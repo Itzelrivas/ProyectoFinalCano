@@ -63,18 +63,20 @@ let btnFinalizar = document.getElementById("finalizarCompra")
 function cargarProductosCarrito(array){
     modalBodyCarrito.innerHTML = ``
     array.forEach((productoCarrito)=>{
-       modalBodyCarrito.innerHTML += `<div id="productoCarrito${productoCarrito.codigo}" class="col-12 col-xl-3 card cardCarrito" style="width: 18rem;">
-        <div class="">
-            <img class="card-img-top img-fluid" style="height: 200px;" src="imagenes/${productoCarrito.imagen}" alt="${productoCarrito.imagen}">
-            <div class="card-body"> 
-                <h4>${productoCarrito.producto}</h4>
-                <p>MARCA: ${productoCarrito.marca}</p>
-                <p>PRECIO: $${productoCarrito.precio}</p>
-                <p>TALLA O DIMENSIONES: ${productoCarrito.talla}</p>
-                <button id="botonEliminar${productoCarrito.codigo}" class="btn btn-danger">Eliminar producto</button>
-            </div>
-        </div>
-    </div>`
+      let modalCarrito = document.createElement("div")
+      modalCarrito.className = "col-12 col-xl-3 cardCarrito"
+       modalCarrito.innerHTML += `<div id="productoCarrito${productoCarrito.codigo}" class="card" style="width: 18rem;">
+         <img class="card-img-top img-fluid" style="height: 200px;" src="imagenes/${productoCarrito.imagen}" alt="${productoCarrito.imagen}">
+         <div class="card-body"> 
+            <h4>${productoCarrito.producto}</h4>
+            <p>MARCA: ${productoCarrito.marca}</p>
+            <p>PRECIO: $${productoCarrito.precio}</p>
+            <p>TALLA O DIMENSIONES: ${productoCarrito.talla}</p>
+            <button id="botonEliminar${productoCarrito.codigo}" class="btn btn-danger">Eliminar producto</button>
+         </div>
+      </div>`
+
+      modalBodyCarrito.appendChild(modalCarrito)
     })
     //Funcionamiento del botón eliminar producto
     array.forEach((productoCarrito) => {
