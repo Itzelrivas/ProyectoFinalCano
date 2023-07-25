@@ -34,22 +34,24 @@ function agregarAlCarrito(producto){
  
        //Alert que indica que ya se agregó el producto seleccionado
        Swal.fire({
-          title: `Ha agregado un producto a su carrito.`,
-          text:`${producto.producto} ha sido agregado.`,
-          confirmButtonColor: "black",
-          confirmButtonText : "Gracias",
-          imageUrl: `imagenes/${producto.imagen}`,
-          imageHeight: 200
- 
+         title: `Ha agregado un producto a su carrito.`,
+         text:`${producto.producto} ha sido agregado. Para finalizar su compra debe dar click al botón del carrito, que se encuentra en la parte superior.`,
+         confirmButtonColor: "black",
+         confirmButtonText : "Continuar :)",
+         imageUrl: `imagenes/${producto.imagen}`,
+         imageHeight: 200,
+         showClass: {
+            popup: 'animate__animated animate__flipInY'
+         },
        })
     }else{
        //El producto seleccionado ya está en el carrito
        Swal.fire({
           title: `${producto.producto} ya existe en el carrito`,
-          icon: "info",
+          imageUrl: `imagenes/carritoInfo.png`,
+          imageHeight: 100,
           timer: 2000,
           showConfirmButton: false
- 
        })
     }
 }

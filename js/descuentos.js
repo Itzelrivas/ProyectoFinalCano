@@ -34,7 +34,13 @@ descuentosBtn.addEventListener("click", () => {
         width: 600,
         padding: '3em',
         background: '#fffdf5',
-        confirmButtonColor: 'black'
+        confirmButtonColor: 'black',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
       })
     
     //Formulario para obtener un código de descuento
