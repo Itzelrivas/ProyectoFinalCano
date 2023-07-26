@@ -1,3 +1,4 @@
+//Botón para tramitar nuestro código de descuento
 .descuentoSeccionBtns{
     text-align: center;
     font-family:'Courier New';
@@ -7,4 +8,9 @@
     .descuentoBtn{
         border-radius: 5px; background-color: rgb(255, 253, 245);
     }
+}
+
+//Centrar el texto del footer del alert cuando te da el código de descuento
+.footerDescuento{
+    text-align: center;
 }

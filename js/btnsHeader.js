@@ -1,4 +1,4 @@
-//Accedemos al boton menú de mi index, el cual resetea todo y solo deja los tres botones principales: catálogo, descuento, agregar y eliminar productos
+//Accedemos al boton menú de mi index, el cual resetea todo y solo deja los tres botones principales: catálogo, descuento, agregar y eliminar productos. Además, aparece un alert de bienvenida
 let btnMenu = document.getElementById("inicioBtnID")
 btnMenu.addEventListener("click", () => {
    productosDiv.innerHTML = ``
@@ -12,6 +12,21 @@ btnMenu.addEventListener("click", () => {
    carritoTotal.innerText = ``
    btnFinalizar.innerText = ``
    
+   Swal.fire({
+      title: `¡Bienvenid@ a Pancho Ross!`,
+      text:`Nos hace muy felices que te intereses por nuestros productos, es por eso, que si esta es tu primera vez comprando por la plataforma, ve a la sección de "descuentos" para tramitar tu código de 10% de descuento :)`,
+      showConfirmButton: false,
+      width: 700,
+      imageUrl: `imagenes/inicio.jpeg`,
+      imageHeight: 400,
+      showClass: {
+         popup: 'animate__animated animate__zoomIn'
+      },
+      hideClass: {
+         popup: 'animate__animated animate__zoomOutDown'
+      },
+      backdrop: `rgba(183, 152, 116, 0.637)`
+    })
 })
 
 //Botón carrito
@@ -108,9 +123,11 @@ function cargarProductosCarrito(array){
     let totalFinal = productosEnCarrito.reduce((acc, productoCarrito)=> acc + productoCarrito.precio , 0)
     //Solo aparece cuando el total es disntinto a cero
     if(totalFinal != 0){
+      //Agregamos un botoncito para finalizar la compra
       btnFinalizar.innerHTML = `<button id="botonFinalizar" class="botonFinalizarClass">Finalizar Compra</button>`
 
       document.getElementById("botonFinalizar").addEventListener("click", () => {
+         //Seteamos nuestro array de los códigos de descuento
          if(localStorage.getItem("codigosDescuento")){
             codigosDescuento = JSON.parse(localStorage.getItem("codigosDescuento"))
          }
@@ -122,6 +139,7 @@ function cargarProductosCarrito(array){
          }
       
          const funFinalizar = async () =>{
+            //Alert para poner un código de descuento, y que el total se modifique 
             const { value: codDescuento } = await Swal.fire({
             title: 'Estas a punto de finalizar tu compra...',
             input: 'text',
@@ -137,6 +155,7 @@ function cargarProductosCarrito(array){
                let a=0
                let b
                for(let i=0; i<codigosDescuento.length; i++){
+                  //El código ingresado es válido
                   if(codigosDescuento[i] == codDescuento){
                      a++
                      b=i
@@ -210,7 +229,7 @@ function cargarProductosCarrito(array){
                   })
                }
             }
-            //El usuario no ingresa ningún código de descuento
+            //El usuario NO ingresa ningún código de descuento
             else{
                Swal.fire({
                      title: `¡Muchas gracias por comprar en Pancho Ross!`,

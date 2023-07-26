@@ -163,6 +163,10 @@
   background-color: rgb(255, 253, 245);
 }
 
+.footerDescuento {
+  text-align: center;
+}
+
 .conProductosSeccion {
   text-align: center;
   font-family: "Courier New";

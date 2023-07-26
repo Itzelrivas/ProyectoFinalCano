@@ -11,7 +11,7 @@ class Producto{
     }
 }
 
-//Aplicamos nuestra API local de los productos iniciales
+//Aplicamos nuestra API local de los productos iniciales del catálogo
 const apiProductos = async () =>{
     const resp = await fetch("catalogo.json")
     const data = await resp.json()
@@ -22,7 +22,7 @@ const apiProductos = async () =>{
     localStorage.setItem("catalogoProductos", JSON.stringify(catalogoProductos)) 
 }
 
-//Creamos nuestro catálogo y le agregamos algunos productos
+//Creamos nuestro catálogo y le agregamos los productos de la API local
 let catalogoProductos = [] 
 if(localStorage.getItem("catalogoProductos")){
   catalogoProductos = JSON.parse(localStorage.getItem("catalogoProductos"))
@@ -40,7 +40,7 @@ let productosAgotados = document.getElementById("productosAgotados")
 let presupuesto = document.getElementById("presupuesto")
 
 
-//Función para mostrar los elementos de un array en cards
+//Función para mostrar los elementos de un array (nuesto catálogo) en cards
 function mostrarCatalogo(array){
     productosDiv.innerHTML = ``
     for(let i=0; i<array.length; i++){
@@ -85,8 +85,7 @@ function mostrarCatalogo(array){
     })
   }
 
-
-  //Funcionamiento del botón Catálogo
+ //Funcionamiento del botón catálogo al darle click
 catalogoCards.addEventListener("click", ()=>{
     descuentoSeccion.innerText = ``
     aeProductosSeccion.innerText = ``

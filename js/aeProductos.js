@@ -17,6 +17,7 @@ aeProductosBtn.addEventListener("click", () => {
     //Contraseña para tener acceso a la función 
     let contraseñaProductos = document.createElement("div")
     contraseñaProductos.className = "conProductosSeccion"
+    //Aparece un pequeño form para poner la contraseña
     contraseñaProductos.innerHTML = `
     <label class="conSeccion">Ingresa la contraseña: <input id="contraseñaIngresada" type="text"></label><br>
     <button id="botonContraseña" class="btnContraseña">Cargar</button>
@@ -25,6 +26,7 @@ aeProductosBtn.addEventListener("click", () => {
     let botonConIngresada = document.getElementById("botonContraseña") 
     botonConIngresada.addEventListener("click", () => {
         let contraseñaIn = document.getElementById("contraseñaIngresada").value
+        //Función que aparece cuando la contraseña ingresada es correcta
         if(contraseñaIn == "1183"){
             aeProductosSeccion.innerText = ``
             let seleccionAgregar = document.createElement("div")
@@ -70,6 +72,7 @@ aeProductosBtn.addEventListener("click", () => {
                     let nuevoPrecio = parseInt(document.getElementById("formAgregarPrecio").value)
                     let nuevoTalla = document.getElementById("formAgregarTalla").value
                     let nuevoImagen = document.getElementById("formAgregarImagen").value
+                    //Agregamos un nuevo producto al array de nuestro catálogo
                     const productoNuevo = new Producto(nuevoProducto, nuevoCategoria, nuevoMarca, nuevoPrecio, nuevoTalla, catalogoProductos.length+1, nuevoImagen)
                     catalogoProductos.push(productoNuevo)
                     localStorage.setItem("catalogoProductos", JSON.stringify(catalogoProductos))
@@ -156,6 +159,7 @@ aeProductosBtn.addEventListener("click", () => {
                 })
             })
         } 
+        //La contraseña ingresada NO es correcta
         else{
             Swal.fire({
                 icon: 'warning',

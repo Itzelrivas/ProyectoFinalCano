@@ -1,5 +1,6 @@
 .conProductosSeccion{
     text-align: center; font-family: 'Courier New';
+    //Style del botón
     button{
         margin: 2%; border-radius: 5px; background-color: rgb(255, 253, 245);
     }
@@ -9,6 +10,7 @@
     text-align: center; font-family: 'Courier New'; margin-bottom: 6%; border-radius: 5px;
 }
 
+//Detalles del form para agregar o elimianr productos
 .formAgregarEliminarDiv{
     text-align: center; font-family: 'Courier New';
     .formAgregar{
@@ -16,6 +18,7 @@
     }
 }
 
+//Botón que cierra y nos lleva nuevamente a seleccionar si quremos agregar o eliminar algún producto
 .botonCerrarForm{
     text-align: center; font-family: 'Courier New';
     button{

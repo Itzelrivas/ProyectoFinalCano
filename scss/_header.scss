@@ -1,3 +1,4 @@
+//Header, donde aparece el logo
 .header{
     background-color: black; padding: 0%;
     .header__logo img{
@@ -5,6 +6,7 @@
     }
 }
 
+//Banner, donde esta una imagen con el nombre de la tienda
 .banner{
     padding: 1%;
     img{
@@ -12,11 +14,13 @@
     }
 }
 
+//Footer
 .footerInicio{
     margin-top: 2%;
     img{width: 100%;}
 }
 
+//Botones de carrito y menú
 .botonesCM{
     display: flex;
     justify-content: end;

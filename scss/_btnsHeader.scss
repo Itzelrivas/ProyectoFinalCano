@@ -1,3 +1,4 @@
+//Cards de cada producto que esta en el carrito
 .cardCarrito{
     display: flex;
     justify-content: center;
@@ -12,6 +13,7 @@
     }
 }
 
+//Sección donde aparece el total del carrito
 .totalClass{
     margin: 2%;
     font-family: "subtitulos";
@@ -22,6 +24,7 @@
     }
 }
 
+//Botón de finalizar compra
 .finalizarClass{
     text-align: center;
     .botonFinalizarClass{

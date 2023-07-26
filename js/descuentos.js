@@ -1,3 +1,4 @@
+//Adquirimos acceso a algunas secciones del HTML 
 let descuentosBtn = document.getElementById("botonesPri__cda--descuentos")
 let descuentoSeccion = document.getElementById("descuentosSeccion")
 
@@ -29,6 +30,7 @@ descuentosBtn.addEventListener("click", () => {
     carritoTotal.innerText = ``
     btnFinalizar.innerText = ``
     
+    //Alert inicial de la sección de descuentos
     Swal.fire({
         title: 'Registrate para obtener un 10% en tu primera compra :)',
         width: 350,
@@ -36,10 +38,10 @@ descuentosBtn.addEventListener("click", () => {
         background: '#fffdf5',
         confirmButtonColor: 'black',
         showClass: {
-            popup: 'animate__animated animate__fadeInDown'
+            popup: 'animate__animated animate__fadeInLeft'
         },
         hideClass: {
-            popup: 'animate__animated animate__fadeOutUp'
+            popup: 'animate__animated animate__fadeOutRight'
         },
         backdrop: `
           rgba(255, 240, 212, 0.731)
@@ -64,12 +66,15 @@ descuentosBtn.addEventListener("click", () => {
         let a=0
         for(let i=0; i < clientes.length; i++)
         {
-            //Ese correo ya esta registrado y no se brinda un código de descuento
+            //Ese correo ya esta registrado y NO se brinda un código de descuento
             if(clientes[i] == correoUsuario)
             {
                 Swal.fire({
                     icon: 'warning',
-                    title: 'Lo sentimos, ya has tramitado tu código de descuento por primera compra antes.'
+                    iconColor: "rgb(139, 10, 10)",
+                    title: 'Lo sentimos, ya has tramitado tu código de descuento por primera compra antes.',
+                    confirmButtonText: "Continuar :(",
+                    confirmButtonColor: "rgb(139, 10, 10)"
                 })
                 a++
                 break
@@ -88,10 +93,15 @@ descuentosBtn.addEventListener("click", () => {
 
             Swal.fire({
                 icon: 'success',
-                title: `Tu código de descuento es primCompra${clientes.length + 1}`,
-                text: 'Usalo en tu primera compra para obtener un 10% de descuento. Recuerda que tu código tiene un mes de vigencia y solamente puedes utilizarlo una vez :)',
-                footer: '<h5>¡Muchas gracias por interesarte en nuestros productos!</h5>'
+                iconColor: "rgb(183, 152, 116)",
+                title: `Tu código de descuento es <strong>primCompra${clientes.length + 1}</strong>`,
+                text: 'Usalo en tu primera compra para obtener un 10% de descuento. Recuerda que solamente puedes utilizar tu código una vez :)',
+                footer: '<h5 class="footerDescuento">¡Muchas gracias por interesarte en nuestros productos!</h5>',
+                confirmButtonText: "Muy bien",
+                confirmButtonColor: "rgb(183, 152, 116)",
+                backdrop: `rgba(189, 206, 248, 0.605)`
             })
+            //Se pushea el código y el usuario a sus arrays correspondientes
             clientes.push(correoUsuario)
             localStorage.setItem("clientes", JSON.stringify(clientes))
             let codigo = `primCompra${clientes.length}`
