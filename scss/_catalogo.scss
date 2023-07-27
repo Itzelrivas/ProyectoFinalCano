@@ -2,6 +2,7 @@
 .cardProducto{
     padding: 2%;
     display: flex;
+    justify-content: center;
     .card{
         background-color: rgb(255 253 245);
         .card-body{
@@ -38,9 +39,8 @@
 }
 
 //Estilos de la parte de los botones de los filtros 
-.filtroProductosDiv .container{
-    display: flex; text-align: center;
-    .filtroDiv__Precios{
+.contenedorFiltros{
+    button{
         background-color: #6c757d; color: white; border-radius: 7px; padding: 2%; border-color: #6c757d;
     }
 }
@@ -64,6 +64,36 @@
     .btnPresupuesto button{
         border-radius: 5px; background-color: rgb(255, 253, 245);
     }
+}
+
+//Centramos los botones de los filtros
+@media (min-width: 1024px){
+    .contenedorFiltros{
+        display: flex;
+        justify-content: center;
+    }
+    
+}
+
+@media (max-width: 768px){
+    .classBtnFiltro{
+        margin-bottom: 3%;
+    }
+}
+
+//Arreglamos el tamaño de los botones
+.classBtnFiltro{
+    text-align: center;
+    button{
+        width: 80%;
+    }
+}
+//Centramos el texto de "Filtrar por:"
+.tituloFiltros{
+    justify-content: center;
+    margin-bottom: 2%;
+    font-weight: bold;
+    color: rgb(139, 10, 10);
 }
 
 

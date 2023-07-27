@@ -69,6 +69,7 @@
 .cardProducto {
   padding: 2%;
   display: flex;
+  justify-content: center;
 }
 .cardProducto .card {
   background-color: rgb(255, 253, 245);
@@ -113,11 +114,7 @@
   border-radius: 20px;
 }
 
-.filtroProductosDiv .container {
-  display: flex;
-  text-align: center;
-}
-.filtroProductosDiv .container .filtroDiv__Precios {
+.contenedorFiltros button {
   background-color: #6c757d;
   color: white;
   border-radius: 7px;
@@ -144,6 +141,31 @@
 .presupuestoDiv .btnPresupuesto button {
   border-radius: 5px;
   background-color: rgb(255, 253, 245);
+}
+
+@media (min-width: 1024px) {
+  .contenedorFiltros {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .classBtnFiltro {
+    margin-bottom: 3%;
+  }
+}
+.classBtnFiltro {
+  text-align: center;
+}
+.classBtnFiltro button {
+  width: 80%;
+}
+
+.tituloFiltros {
+  justify-content: center;
+  margin-bottom: 2%;
+  font-weight: bold;
+  color: rgb(139, 10, 10);
 }
 
 .noProductosStock {
