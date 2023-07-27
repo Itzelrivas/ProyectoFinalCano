@@ -84,13 +84,13 @@ descuentosBtn.addEventListener("click", () => {
         if(a==0){
             if(localStorage.getItem("codigosDescuento")){
                 codigosDescuento = JSON.parse(localStorage.getItem("codigosDescuento"))
-              }else{
+            }else{
                 codigosDescuento.forEach(objeto =>{
                     codigosDescuento.push(objeto)
                 })
                 localStorage.setItem("codigosDescuento", JSON.stringify(codigosDescuento)) 
-              }
-
+            }
+            
             Swal.fire({
                 icon: 'success',
                 iconColor: "rgb(183, 152, 116)",

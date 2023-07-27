@@ -31,12 +31,12 @@ btnMenu.addEventListener("click", () => {
 
 //Botón carrito
 let productosEnCarrito 
-if(localStorage.getItem("carrito")){
-   productosEnCarrito = JSON.parse(localStorage.getItem("carrito"))
+if(localStorage.getItem("productosEnCarrito")){
+   productosEnCarrito = JSON.parse(localStorage.getItem("productosEnCarrito"))
 }else{
    //No esta en el storage
    productosEnCarrito = []
-   localStorage.setItem("carrito", productosEnCarrito)
+   localStorage.setItem("productosEnCarrito", productosEnCarrito)
 }
 
 //Agregamos productos a nuestro array del carrito
@@ -45,7 +45,7 @@ function agregarAlCarrito(producto){
     if(productoAgregado == undefined){
        //Sumamos al carrito el producto
        productosEnCarrito.push(producto)
-       localStorage.setItem("carrito", JSON.stringify(productosEnCarrito))
+       localStorage.setItem("productosEnCarrito", JSON.stringify(productosEnCarrito))
  
        //Alert que indica que ya se agregó el producto seleccionado
        Swal.fire({
@@ -111,17 +111,20 @@ function cargarProductosCarrito(array){
           let posicion = array.indexOf(productoEliminar)
           array.splice(posicion,1)
           //Actualizamos el storage
-          localStorage.setItem("carrito", JSON.stringify(array))
+          localStorage.setItem("productosEnCarrito", JSON.stringify(array))
  
           //Calculamos el total
           calcularTotal(array)
+
+          //Si eliminamos todos los productos del carrito, se elimina el botón "finalizar compra"
+         if(totalFinal == 0){
+            btnFinalizar.innerText = ``
+         }
        })
     })
     calcularTotal(array)
     
-    //Botón finalizar compra 
-    let totalFinal = productosEnCarrito.reduce((acc, productoCarrito)=> acc + productoCarrito.precio , 0)
-    //Solo aparece cuando el total es disntinto a cero
+    //Botón finalizar compra. Solo aparece cuando el total es disntinto a cero
     if(totalFinal != 0){
       //Agregamos un botoncito para finalizar la compra
       btnFinalizar.innerHTML = `<button id="botonFinalizar" class="botonFinalizarClass">Finalizar Compra</button>`
@@ -173,7 +176,7 @@ function cargarProductosCarrito(array){
                         localStorage.setItem("codigosDescuento", JSON.stringify(codigosDescuento))
                         //Limpiamos el array del carrito
                         productosEnCarrito = []
-                        localStorage.setItem("carrito", productosEnCarrito)
+                        localStorage.setItem("productosEnCarrito", productosEnCarrito)
                         //Limpiamos nuestra sección de carrito y eliminamos las cards
                         modalBodyCarrito.innerHTML = ``
                         carritoTotal.innerText = ``
@@ -209,7 +212,7 @@ function cargarProductosCarrito(array){
                   finalizarSD.addEventListener("click", () => {
                      //Limpiamos el array del carrito
                      productosEnCarrito = []
-                     localStorage.setItem("carrito", productosEnCarrito)
+                     localStorage.setItem("productosEnCarrito", productosEnCarrito)
                      //Limpiamos nuestra sección de carrito y eliminamos las cards
                      modalBodyCarrito.innerHTML = ``
                      carritoTotal.innerText = ``
@@ -248,7 +251,7 @@ function cargarProductosCarrito(array){
                finalizarSD.addEventListener("click", () => {
                   //Limpiamos el array del carrito
                   productosEnCarrito = []
-                  localStorage.setItem("carrito", productosEnCarrito)
+                  localStorage.setItem("productosEnCarrito", productosEnCarrito)
                   //Limpiamos nuestra sección de carrito y eliminamos las cards
                   modalBodyCarrito.innerHTML = ``
                   carritoTotal.innerText = ``
@@ -274,6 +277,7 @@ function cargarProductosCarrito(array){
 }
  
  //Función para calcular el total de los productos del carrito
+ let totalFinal = 0
  function calcularTotal(array){
     let total = array.reduce((acc, productoCarrito)=> acc + productoCarrito.precio , 0)
     if(total == 0){
@@ -290,6 +294,7 @@ function cargarProductosCarrito(array){
             <h3>El total es $<strong>${total}</strong></h3>
         </div>`
     }
+    totalFinal = total
  }
 
 //El botón del carrito resetea para que solo aparezcan las cards de los productos del carrito y el total
